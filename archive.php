@@ -33,14 +33,25 @@ get_header(); ?>
 						elseif ( is_tag() ) :
 							single_tag_title();
 							$tag_name = single_tag_title('',false);
+							
+							$tmp = get_term_by('slug', $tag_name , 'post_tag');
+							
 						?>	
-							<input type="hidden" id="tag_id" value="<?php echo $tag_name; ?>" />		
+							<input type="hidden" id="tag_id" value="<?php echo $tmp->slug; ?>" />		
 						<?php	
 
 						elseif ( is_author() ) :
-							$author_archive = get_query_var('author_name');
+							if(get_query_var('author_name')) :
+								
+								$curauth = get_user_by('slug', get_query_var('author_name'));
+							else :
+								
+								$curauth = get_userdata(get_query_var('author'));
+							endif;
+							
+							
 						?>								
-							<input type="hidden" id="author_id" value="<?php  echo $author_archive;  ?>" />							
+							<input type="hidden" id="author_id" value="<?php  echo $curauth->ID;  ?>" />							
 						<?php	
 							the_post();
 							printf( __( 'Author: %s', 'cwp-megar' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );

@@ -1,15 +1,15 @@
-= CWP-megaR =
-Author: CodeinWp 
+= CWP MegaResponsive =
+Author: codeinwp 
 
 Tags: white, light, right-sidebar, two-columns, fixed-width, custom-menu, theme-options, featured-images, right-sidebar, custom-background, custom-header, editor-style
 Requires at least:	3.3.0
 
 Tested up to:		3.8
 
-CWP-megaR
+CWP MegaResponsive
 
 == Description ==
-CWP-megaR is a simple WordPress Theme with an elegant design.  
+CWP MegaResponsive is a simple WordPress Theme with an elegant design.  
 = License =
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public Licemse.

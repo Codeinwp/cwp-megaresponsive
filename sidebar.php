@@ -50,7 +50,7 @@
             <?php _e( '| All rights reserved.' ); ?>          
         </div><!-- .copyright -->
 		<div class="copyright">
-			<a href="http://themeisle.com/themes/megaresponsive/?utm_source=numetema&utm_medium=link&utm_campaign=themefooter" title="CWP Megaresponsive" rel="nofollow" target="_blank">
+			<a href="http://themeisle.com/themes/megaresponsive/?utm_source=megaresponsive&utm_medium=link&utm_campaign=themefooter" title="CWP Megaresponsive" rel="nofollow" target="_blank">
 			CWP Megaresponsive</a>
 			<?php _e(" powered by ",'cwp');?> <a href="http://wordpress.org/" title="WordPress" target="_blank">
 			WordPress</a>

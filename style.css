@@ -1133,6 +1133,9 @@ a:active {
 	display: none 
 
 }
+#tinynav2 {
+	margin-top:10px;
+}
 
 #menu-short .selected a, #menu-testing-menu .selected a{ 
 
@@ -2645,6 +2648,30 @@ input[type="search"] {
 
 
 @media (max-width: 1170px) {
+	
+	.tinynav { 
+
+		display: block;
+
+		padding: 0;
+
+		font-size: 12px;
+
+		line-height: 14px;
+
+		padding: 3px;
+
+		height: 26px;
+
+		border-radius: 1px;
+
+		width: 80%;
+
+		text-align: center;
+
+		margin: 0 auto 10px auto;
+
+	}
 
     #side-content{
 
@@ -2686,6 +2713,13 @@ input[type="search"] {
 
     }
 
+	#menu-main-menu, #menu-testing-menu{
+        display: none;
+    }
+	
+	#main-content {
+        margin-top:30px;
+    }	
 
 
 }
@@ -2750,7 +2784,7 @@ input[type="search"] {
 
     #menu-main-menu{
 
-        /*display: none;*/
+        display: none;
 
     }
 
@@ -2764,59 +2798,16 @@ input[type="search"] {
 
 @media (max-width: 768px) {
 
-	.tinynav { 
-
-		display: block;
-
-		padding: 0;
-
-		font-size: 12px;
-
-		line-height: 14px;
-
-		padding: 3px;
-
-		height: 26px;
-
-		border-radius: 1px;
-
-		width: 80%;
-
-		text-align: center;
-
-		margin: 0 auto 10px auto;
-
-	}
-
-    #menu-short, #menu-testing-menu{ 
-
-		display: none;
-
-	}
-
 	.entry-thumbnail, .entry-thumbnail img{
 
 		width: 100%;
 
 	}
 
-	#menu-main-menu{
+	#menu-main-menu, #menu-testing-menu{
 
         display: none;
 
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-      
-

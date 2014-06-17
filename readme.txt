@@ -1,4 +1,4 @@
-= CWP MegaResponsive =
+= MegaResponsive Lite =
 Author: codeinwp 
 
 Tags: white, light, right-sidebar, two-columns, fixed-width, custom-menu, theme-options, featured-images, right-sidebar, custom-background, custom-header, editor-style
@@ -6,13 +6,13 @@ Requires at least:	3.3.0
 
 Tested up to:		3.8
 
-CWP MegaResponsive
+MegaResponsive Lite
 
 == Description ==
-CWP MegaResponsive is a simple WordPress Theme with an elegant design.  
+MegaResponsive Lite is a Free Responsive and fluid WordPress theme.  
 = License =
 
-Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public Licemse.
+Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License v2.
 
 The exceptions to this license are as follows: 
 * Tiny Nav

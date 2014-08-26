@@ -331,18 +331,18 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			$this->populate_file_path();
 
 			foreach ( $this->plugins as $plugin ) {
-				if ( ! is_plugin_active( $plugin['file_path'] ) ) {
-					add_submenu_page(
-						$this->parent_menu_slug,				// Parent menu slug
-						$this->strings['page_title'],           // Page title
-						$this->strings['menu_title'],           // Menu title
-						'edit_theme_options',                   // Capability
-						$this->menu,                            // Menu slug
-						array( &$this, 'install_plugins_page' ) // Callback
-					);
-				break;
-				}
-			}
+	                                if ( ! is_plugin_active( $plugin['file_path'] ) ) {
+	                                        add_theme_page(
+	                                                //$this->parent_menu_slug,                              // Parent menu slug
+	                                                $this->strings['page_title'],           // Page title
+	                                                $this->strings['menu_title'],           // Menu title
+                                              'edit_theme_options',                   // Capability
+	                                                $this->menu,                            // Menu slug
+	                                                array( &$this, 'install_plugins_page' ) // Callback
+	                                        );
+	                                break;
+                               }
+	                        }
 
 		}
 

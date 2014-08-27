@@ -1,9 +1,9 @@
 /*
 Theme Name: MegaResponsive Lite
 
-Theme URI: https://themeisle.com/themes/megaresponsive-lite/
+Theme URI: http://themeisle.com/themes/megaresponsive-lite/
 
-Description: MegaResponsive Lite is a Free Responsive and fluid WordPress theme. It is designed for news websites or blog to show their business online in more modern way. This theme can also online magazines or personal sites..  
+Description: MegaResponsive Lite is a Free Responsive and fluid WordPress theme.  
 
 License: GNU General Public License v2
 
@@ -13,9 +13,9 @@ Author: codeinwp
 
 Author URI: Codeinwp.com
 
-Tags: white, light, right-sidebar, two-columns, fixed-layout ,responsive-layout, custom-menu, theme-options, featured-images, right-sidebar, custom-background, custom-header, editor-style
+Tags: white, light, right-sidebar, two-columns, fixed-width, custom-menu, theme-options, featured-images, right-sidebar, custom-background, custom-header, editor-style
 
-Version: 1.0.6
+Version: 1.0.5
 
 MegaResponsive Lite is based on the _s (Underscores) starter theme by Automattic Inc., licensed under GNU General Public License.
 */
@@ -1195,6 +1195,12 @@ a:active {
 
 .hentry {
 
+	border-bottom: 1px solid #e5e5e5;
+
+	padding-bottom: 20px;
+
+	margin-bottom: 20px;
+
 	display: inline-block;
 
 	width: 100%;
@@ -1283,7 +1289,11 @@ a:active {
 
 .single .entry-content{
 
-	padding-top: 10px;
+	border-top: 1px solid #e5e5e5;
+
+	padding-top: 40px;
+
+	margin-top: 40px;
 
 }
 

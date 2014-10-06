@@ -121,13 +121,11 @@ function megaresponsive_lite_setup() {
 
      */
 
-    //require get_template_directory() . '/inc/custom-header.php';
-
 	$args = array(
 
-		'width'         => 980,
+		'width'         => 1700,
 
-		'height'        => 60,
+		'height'        => 90,
 
 		'default-image' => '',
 
@@ -221,7 +219,7 @@ add_action( 'after_setup_theme', 'megaresponsive_lite_setup' );
 
  */
 
-function cwp_megar_widgets_init() {
+function megaresponsive_lite_widgets_init() {
 
 	register_sidebar( array(
 
@@ -241,7 +239,7 @@ function cwp_megar_widgets_init() {
 
 }
 
-add_action( 'widgets_init', 'cwp_megar_widgets_init' );
+add_action( 'widgets_init', 'megaresponsive_lite_widgets_init' );
 
 
 
@@ -251,65 +249,33 @@ add_action( 'widgets_init', 'cwp_megar_widgets_init' );
 
  */
 
-function cwp_megar_scripts() {
+function megaresponsive_lite_scripts() {
 
+	wp_enqueue_style( 'megaresponsive_lite-bootstrap-style', get_template_directory_uri() . '/css/bootstrap.css', array(), '20130801', 'all' );
 	
+	wp_enqueue_style( 'megaresponsive_lite-custom-style', get_template_directory_uri() . '/css/bootstrap-responsive.css', array(), '20130801', 'all' );
 
-	wp_enqueue_style( 'cwp-megar-bootstrap-style', get_template_directory_uri() . '/css/bootstrap.css', array(), '20130801', 'all' );
-
-	
-
-	wp_enqueue_style( 'cwp-megar-custom-style', get_template_directory_uri() . '/css/bootstrap-responsive.css', array(), '20130801', 'all' );
-
-	
-
-	wp_enqueue_style( 'cwp-megar-style', get_stylesheet_uri() );
-
-	
+	wp_enqueue_style( 'megaresponsive_lite-style', get_stylesheet_uri() );
 
 	wp_enqueue_script('jquery');
-
-
-
-	wp_enqueue_script( 'cwp-megar-jquery-min', get_template_directory_uri() . '/js/jquery.min.js', array(), '20130801', true );
-
 	
+	wp_enqueue_script( 'megaresponsive_lite-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20130801', true );
 
-	wp_enqueue_script( 'cwp-megar-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20130801', true );
+    wp_enqueue_script( 'megaresponsive_lite-tinyscrollbar', get_template_directory_uri() . '/js/jquery.tinyscrollbar.min.js', array(), '', true ); 
 
+    wp_enqueue_script( 'megaresponsive_lite-tinynav', get_template_directory_uri() . '/js/tinynav.js', array(), '20130801', true );
 
+	wp_enqueue_script( 'megaresponsive_lite-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20130801', true );
 
-    wp_enqueue_script( 'cwp-megar-tinyscrollbar', get_template_directory_uri() . '/js/jquery.tinyscrollbar.min.js', array(), '', true );
+	wp_enqueue_script( 'megaresponsive_lite-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true ); 
 
-    
+    wp_enqueue_script( 'megaresponsive_lite-ajaxLoop', get_template_directory_uri() . '/js/ajaxLoop.js', array('jquery'), '1.0.0', true );
 
-    wp_enqueue_script( 'cwp-megar-tinynav', get_template_directory_uri() . '/js/tinynav.js', array(), '20130801', true );
+	wp_enqueue_script( 'megaresponsive_lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );		
 
+	wp_register_style( 'megaresponsive_lite_open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Roboto+Slab');    
 
-
-	wp_enqueue_script( 'cwp-megar-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20130801', true );
-
-
-
-	wp_enqueue_script( 'cwp-megar-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-    
-
-    wp_enqueue_script( 'cwp-megar-ajaxLoop', get_template_directory_uri() . '/js/ajaxLoop.js', array('jquery'), '1.0.0', true );
-
-	
-
-    
-
-	wp_enqueue_script( 'cwp-megar-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );		
-
-	wp_register_style( 'cwp_open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Roboto+Slab');    
-
-	
-
-	wp_enqueue_style( 'cwp_open-sans' );
-
-
+	wp_enqueue_style( 'megaresponsive_lite_open-sans' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
@@ -317,22 +283,22 @@ function cwp_megar_scripts() {
 
 	}
 
-
-
 	if ( is_singular() && wp_attachment_is_image() ) {
 
-		wp_enqueue_script( 'cwp-megar-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
+		wp_enqueue_script( 'megaresponsive_lite-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 
 	}
 
 }
 
-add_action( 'wp_enqueue_scripts', 'cwp_megar_scripts' );
+add_action( 'wp_enqueue_scripts', 'megaresponsive_lite_scripts' );
 
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
-add_action( 'tgmpa_register', 'cwp_megar_required_plugins' );
-function cwp_megar_required_plugins() {
+
+add_action( 'tgmpa_register', 'megaresponsive_lite_required_plugins' );
+
+function megaresponsive_lite_required_plugins() {
 
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
@@ -429,22 +395,18 @@ add_action( 'init', 'megaresponsive_lite_add_editor_styles' );
 
 
 /*
-
  *  Load more posts
-
  */
 
-add_action('wp_ajax_cwp_loop', 'cwp_loop_callback');
+add_action('wp_ajax_megaresponsive_lite_loop', 'megaresponsive_lite_loop_callback');
 
-add_action('wp_ajax_nopriv_cwp_loop', 'cwp_loop_callback');
+add_action('wp_ajax_nopriv_megaresponsive_lite_loop', 'megaresponsive_lite_loop_callback');
 
 
 
-function cwp_loop_callback() {
+function megaresponsive_lite_loop_callback() {
 
-  global $post;
-
-  
+	global $post;
 
 	$numPosts = (isset($_GET['numPosts'])) ? $_GET['numPosts'] : 0;
 
@@ -460,125 +422,101 @@ function cwp_loop_callback() {
 
 	$tagg = (isset($_GET['tagPar'])) ? $_GET['tagPar'] : -1;
 
+	if( $catt != -1 ):
+
+		query_posts(array(
+
+		   'posts_per_page' => $numPosts,
+
+		   'paged' => $page,
+
+		   'cat' =>  $catt,
+
+		   'post_status' => 'publish',
+
+		   'post__not_in' => get_option( 'sticky_posts' )
+
+		));
+
+	elseif( ($yearr != -1) && ($monthh != -1) ):
+
+		query_posts(array(
+
+		   'posts_per_page' => $numPosts,
+
+		   'paged' => $page,
+
+		   'year' =>  $yearr,
+
+		   'monthnum' => $monthh,
+
+		   'post_status' => 'publish',
+
+		   'post__not_in' => get_option( 'sticky_posts' )
+
+		));
+
+	elseif( $yearr != -1 ):
+
+		query_posts(array(
+
+		   'posts_per_page' => $numPosts,
+
+		   'paged' => $page,
+
+		   'year' =>  $yearr,
+
+		   'post_status' => 'publish',
+
+		   'post__not_in' => get_option( 'sticky_posts' )
+
+		));
+
+	elseif( $authorr != -1 ):
 	
+		query_posts(array(
 
+		   'posts_per_page' => $numPosts,
 
+		   'paged' => $page,
 
-	if($catt != -1):
+		   'author' =>  $authorr,
 
- 
+		   'post_status' => 'publish',
 
-	query_posts(array(
+		   'post__not_in' => get_option( 'sticky_posts' )
 
-       'posts_per_page' => $numPosts,
-
-       'paged'          => $page,
-
-	   'cat' =>  $catt,
-
-	   'post_status' => 'publish',
-
-	   'post__not_in' => get_option( 'sticky_posts' )
-
-	));
-
-	elseif($yearr != -1 && $monthh != -1):
-
- 
-
-	query_posts(array(
-
-       'posts_per_page' => $numPosts,
-
-       'paged'          => $page,
-
-	   'year' =>  $yearr,
-
-	   'monthnum' => $monthh,
-
-	   'post_status' => 'publish',
-
-	   'post__not_in' => get_option( 'sticky_posts' )
-
-	));
-
-	
-
-	elseif($yearr != -1):
-
- 
-
-	query_posts(array(
-
-       'posts_per_page' => $numPosts,
-
-       'paged'          => $page,
-
-	   'year' =>  $yearr,
-
-	   'post_status' => 'publish',
-
-	   'post__not_in' => get_option( 'sticky_posts' )
-
-	));
-
-	
-
-	elseif($authorr != -1):
-
- 
-
-	query_posts(array(
-
-       'posts_per_page' => $numPosts,
-
-       'paged'          => $page,
-
-	   'author' =>  $authorr,
-
-	   'post_status' => 'publish',
-
-	   'post__not_in' => get_option( 'sticky_posts' )
-
-	));
-
-	
+		));
 
 	elseif($tagg != -1):
 
- 
+		query_posts(array(
 
-	query_posts(array(
+		   'posts_per_page' => $numPosts,
 
-       'posts_per_page' => $numPosts,
+		   'paged'  => $page,
 
-       'paged'          => $page,
+		   'tag' =>  $tagg,
 
-	   'tag' =>  $tagg,
+		   'post_status' => 'publish',
 
-	   'post_status' => 'publish',
+		   'post__not_in' => get_option( 'sticky_posts' )
 
-	   'post__not_in' => get_option( 'sticky_posts' )
-
-	));
-
-	
+		));
 
 	else:
 
- 
+		query_posts(array(
 
-	query_posts(array(
+		   'posts_per_page' => $numPosts,
 
-       'posts_per_page' => $numPosts,
+		   'paged'          => $page,
 
-       'paged'          => $page,
+		   'post_status' => 'publish',
 
-	   'post_status' => 'publish',
+		   'post__not_in' => get_option( 'sticky_posts' )
 
-	   'post__not_in' => get_option( 'sticky_posts' )
-
-	));
+		));
 
 	endif;
 
@@ -589,57 +527,45 @@ function cwp_loop_callback() {
 
 			<header class="entry-header">
 
-
-
-				<div class="entry-thumbnail"> 
-
 				<?php
 
-					if ( has_post_thumbnail() ) {
+					if ( has_post_thumbnail() ):
+					
+						echo '<div class="entry-thumbnail"> ';
 
-						?>
-
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark">
-
-						<?php
+							echo '<a href="'.get_permalink().'" title="'.get_the_title().'" rel="bookmark">';
 
 							the_post_thumbnail(array(250,250), array('class' => 'alignleft'));
 
-						?>
+							echo '</a>';
+						
+						echo '</div>';
 
-						</a>
-
-					<?php
-
-					}
+					endif;
 
 				?>
 
-			   </div>
+				<div class="entry-meta meta-top">
 
-			   
+					<div class="post-categories">
 
-			<div class="entry-meta meta-top">
+						<?php the_category(' / '); ?>
 
-				<div class="post-categories">
+					</div>
 
-					<?php the_category(' / '); ?>
+					<?php if ( 'post' == get_post_type() ) : ?>
+
+					<div class="entry-meta">
+
+						<?php megaresponsive_lite_posted_on(); ?>
+
+					</div><!-- .entry-meta -->
+
+					<?php endif; ?>	
 
 				</div>
 
-				<?php if ( 'post' == get_post_type() ) : ?>
-
-				<div class="entry-meta">
-
-					<?php cwp_megar_posted_on(); ?>
-
-				</div><!-- .entry-meta -->
-
-				<?php endif; ?>	
-
-			</div>
-
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 			</header><!-- .entry-header -->
 
@@ -677,13 +603,36 @@ function cwp_loop_callback() {
 
 		</article><!-- #post-## -->
 
-       
-
-       
 
       <?php endwhile;
 
 
 	die(); // this is required to return a proper result
 
+}
+
+/* Display a notice that can be dismissed */
+
+add_action('admin_notices', 'megaresponsive_lite_admin_notice');
+
+function megaresponsive_lite_admin_notice() {
+	global $current_user ;
+        $user_id = $current_user->ID;
+        /* Check that the user hasn't already clicked to ignore the message */
+	if ( ! get_user_meta($user_id, 'example_ignore_notice') ) {
+        echo '<div class="updated"><p>'; 
+        printf(__('We just released a PRO version of MegaResponsive Lite with custom colors, new page templates, different sidebar layouts. <a href="https://themeisle.com/themes/cwp-megaresponsive-pro/" target="_blank">Upgrade to PRO</a> | <a href="%1$s">Hide Notice</a>','megaresponsive-lite'), '?megaresponsive_lite_nag_ignore=0');
+        echo "</p></div>";
+	}
+}
+
+add_action('admin_init', 'megaresponsive_lite_nag_ignore');
+
+function megaresponsive_lite_nag_ignore() {
+	global $current_user;
+        $user_id = $current_user->ID;
+        /* If user clicks to ignore the notice, add that to their user meta */
+        if ( isset($_GET['megaresponsive_lite_nag_ignore']) && '0' == $_GET['megaresponsive_lite_nag_ignore'] ) {
+             add_user_meta($user_id, 'example_ignore_notice', 'true', true);
+	}
 }

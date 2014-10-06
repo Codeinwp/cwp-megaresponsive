@@ -20,6 +20,12 @@ get_header(); ?>
 		
             <div id="main-content">
 	            <div id="main-content-inner">
+					<?php 
+					$has_header = get_header_image(); 
+					if( $has_header ) :
+					?>
+						<img src="<?php header_image(); ?>" alt="" class="megaresponsive-lite-header-image" />
+					<?php endif; ?>
 
 					<?php if ( have_posts() ) : ?>
 

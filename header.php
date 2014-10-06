@@ -26,9 +26,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php $has_header = get_header_image(); if($has_header != false) :?>
-<img src="<?php header_image(); ?>" alt="" />
-<?php endif; ?>
+
 
 <div id="page" class="hfeed site">
 
@@ -36,8 +34,8 @@
 		<div class="container">
 	
     	<div class="site-branding">
-            <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-                <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo get_theme_mod( 'themeslug_logo' ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+            <?php if ( get_theme_mod( 'megaresponsive_lite_logo' ) ) : ?>
+                <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo get_theme_mod( 'megaresponsive_lite_logo' ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
             <?php else: ?>
 			     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -53,3 +51,4 @@
 
 	<div id="main" class="site-main">
     	<div class="container">
+			

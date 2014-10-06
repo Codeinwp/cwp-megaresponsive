@@ -18,7 +18,7 @@
 			</div>
 			<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php cwp_megar_posted_on(); ?>
+				<?php megaresponsive_lite_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php endif; ?>	
 		</div>

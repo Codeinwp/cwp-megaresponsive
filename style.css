@@ -15,7 +15,7 @@ Author URI: Codeinwp.com
 
 Tags: white, light, right-sidebar, two-columns, fixed-layout ,responsive-layout, custom-menu, theme-options, featured-images, right-sidebar, custom-background, custom-header, editor-style
 
-Version: 1.0.6
+Version: 1.0.7
 
 MegaResponsive Lite is based on the _s (Underscores) starter theme by Automattic Inc., licensed under GNU General Public License.
 */
@@ -558,6 +558,16 @@ th {
 
 	font-weight: bold;
 
+}
+
+table th {
+	background: #eee;
+	font-weight: bold;
+}
+table td, table th {
+	padding: 8px;
+	border: 1px solid #ddd;
+	text-align: left;
 }
 
 img {
@@ -1450,12 +1460,6 @@ p.comment-notes{
 /* 5.2 =Comment box
 
 ----------------------------------------------- */
-
-#comments li {
-
-	list-style: none;
-
-}
 
 #comments ol {
 
@@ -2483,10 +2487,8 @@ input[type="search"] {
 
 	}
 
-	#main-content-inner{
-
+	#side-content  + #main-content #main-content-inner {
 		margin-left: 250px;
-
 	}
 
 	#side-content{

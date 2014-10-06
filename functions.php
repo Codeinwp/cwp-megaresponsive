@@ -1,16 +1,10 @@
 <?php
 
 /**
-
- * CWP-MegaR functions and definitions
-
+ * megaresponsive-lite functions and definitions
  *
-
- * @package CWP-MegaR
-
+ * @package megaresponsive-lite
  */
-
-
 
 /**
 
@@ -21,10 +15,6 @@
 if ( ! isset( $content_width ) )
 
 	$content_width = 640; /* pixels */
-
-
-
-
 
 /**
 
@@ -40,23 +30,18 @@ if ( ! isset( $content_width ) )
 
  */
 
-function cwp_megar_setup() {
+function megaresponsive_lite_setup() {
 
 
 
 	/**
-
 	 * Make theme available for translation
-
 	 * Translations can be filed in the /languages/ directory
-
-	 * If you're building a theme based on CWP-MegaR, use a find and replace
-
-	 * to change 'cwp-megar' to the name of your theme in all the template files
-
+	 * If you're building a theme based on megaresponsive-lite, use a find and replace
+	 * to change 'megaresponsive-lite' to the name of your theme in all the template files
 	 */
 
-	load_theme_textdomain( 'cwp-megar', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'megaresponsive-lite', get_template_directory() . '/languages' );
 
 
 
@@ -80,7 +65,7 @@ function cwp_megar_setup() {
 
 	 */
 
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 
 
@@ -92,11 +77,11 @@ function cwp_megar_setup() {
 
 	register_nav_menus( array(
 
-		'primary' => __( 'Primary Menu', 'cwp-megar' ),
+		'primary' => __( 'Primary Menu', 'megaresponsive-lite' ),
 
-		'footer' => __( 'Footer Menu', 'cwp-megar' ),
+		'footer' => __( 'Footer Menu', 'megaresponsive-lite' ),
 
-		'sidebar_menu' => __( 'Sidebar menu', 'cwp-megar' ),
+		'sidebar_menu' => __( 'Sidebar menu', 'megaresponsive-lite' ),
 
 	) );
 
@@ -226,7 +211,7 @@ function cwp_megar_setup() {
 
 }
 
-add_action( 'after_setup_theme', 'cwp_megar_setup' );
+add_action( 'after_setup_theme', 'megaresponsive_lite_setup' );
 
 
 
@@ -240,7 +225,7 @@ function cwp_megar_widgets_init() {
 
 	register_sidebar( array(
 
-		'name'          => __( 'Sidebar', 'cwp-megar' ),
+		'name'          => __( 'Sidebar', 'megaresponsive-lite' ),
 
 		'id'            => 'sidebar-1',
 
@@ -366,7 +351,7 @@ function cwp_megar_required_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'cw-magazine';
+	$theme_text_domain = 'megaresponsive-lite';
 
 	/**
 	 * Array of configuration settings. Amend each line as needed.
@@ -376,7 +361,7 @@ function cwp_megar_required_plugins() {
 	 * end of each line for what each argument will be.
 	 */
 	$config = array(
-		'domain'       		=> 'cw-magazine',         	// Text domain - likely want to be the same as your theme.
+		'domain'       		=> 'megaresponsive-lite',         	// Text domain - likely want to be the same as your theme.
 		'default_path' 		=> '',                         	// Default absolute path to pre-packaged plugins
 		'parent_menu_slug' 	=> 'themes.php', 				// Default parent menu slug
 		'parent_url_slug' 	=> 'themes.php', 				// Default parent URL slug
@@ -417,9 +402,9 @@ function cwp_megar_required_plugins() {
 
  */
 
-add_filter( 'the_title', 'cwp_no_title');
+add_filter( 'the_title', 'megaresponsive_lite_no_title');
 
-function cwp_no_title ($title) { 
+function megaresponsive_lite_no_title ($title) { 
 
 	if( $title == "" ){ 
 
@@ -433,13 +418,13 @@ function cwp_no_title ($title) {
 
 
 
-function cwp_add_editor_styles() {
+function megaresponsive_lite_add_editor_styles() {
 
     add_editor_style( '/css/custom-editor-style.css' );
 
 }
 
-add_action( 'init', 'cwp_add_editor_styles' );
+add_action( 'init', 'megaresponsive_lite_add_editor_styles' );
 
 
 
@@ -597,22 +582,9 @@ function cwp_loop_callback() {
 
 	endif;
 
-	
-
-	$cpage = $page; 
-
-	
-
 	while ( have_posts() ) : the_post(); ?>
 
        
-
-       
-
-       
-
-
-
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<header class="entry-header">
@@ -685,15 +657,11 @@ function cwp_loop_callback() {
 
 			<div class="entry-content">
 
-				<?php the_excerpt(); ?>
-
-				<?php //the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cwp-megar' ) ); ?>
-
-				<?php
+				<?php the_excerpt(); 
 
 					wp_link_pages( array(
 
-						'before' => '<div class="page-links">' . __( 'Pages:', 'cwp-megar' ),
+						'before' => '<div class="page-links">' . __( 'Pages:', 'megaresponsive-lite' ),
 
 						'after'  => '</div>',
 
@@ -715,27 +683,7 @@ function cwp_loop_callback() {
 
       <?php endwhile;
 
-			$all = wp_count_posts();
-
-			$pall = ceil($all->publish/$numPosts);
-
-			if($cpage<$pall){
-
-	  ?>
-
-				
-
-       
-
-	<?php }  
-
-			
-
- 
 
 	die(); // this is required to return a proper result
 
 }
-
-
-

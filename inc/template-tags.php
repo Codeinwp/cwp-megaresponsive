@@ -11,7 +11,7 @@
 /**
  * Display navigation to next/previous pages when applicable
  */
-function cwp_megar_content_nav( $nav_id ) {
+function megaresponsive_lite_content_nav( $nav_id ) {
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.

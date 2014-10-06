@@ -1,6 +1,6 @@
 <?php
 /**
- * @package CWP-MegaR
+ * @package megaresponsive-lite
  */
 ?>
 
@@ -25,10 +25,15 @@
 
 	<div class="entry-content">		
 		<?php
+		
+			if ( has_post_thumbnail() ):
+				the_post_thumbnail();
+			endif;
+
 			the_content(); 		
 		
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'cwp-megar' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'megaresponsive-lite' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -37,40 +42,38 @@
 	<footer class="entry-meta">
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'cwp-megar' ) );
+			$category_list = get_the_category_list( __( ', ', 'megaresponsive-lite' ) );
 
 			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'cwp-megar' ) );
+			$tag_list = get_the_tag_list( '', __( ', ', 'megaresponsive-lite' ) );
 
 			if ( ! cwp_megar_categorized_blog() ) {
 				// This blog only has 1 category so we just need to worry about tags in the meta text
 				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'cwp-megar' );
+					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'megaresponsive-lite' );
 				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'cwp-megar' );
+					$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'megaresponsive-lite' );
 				}
 
 			} else {
 				// But this blog has loads of categories so we should probably display them here
 				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'cwp-megar' );
+					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'megaresponsive-lite' );
 				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'cwp-megar' );
+					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'megaresponsive-lite' );
 				}
 
 			} // end check for categories on this blog
 
-			$meta_text = __( 'Tags: %1$s','cwp' );
+			$meta_text = __( 'Tags: %1$s','megaresponsive-lite' );
 
 			printf(
 				$meta_text,
-//				$category_list,
 				$tag_list,
-//				get_permalink(),
 				the_title_attribute( 'echo=0' )
 			);
 		?>
 
-		<?php edit_post_link( __( 'Edit', 'cwp-megar' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'megaresponsive-lite' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-## -->

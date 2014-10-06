@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package CWP-MegaR
+ * @package megaresponsive-lite
  */
 
 get_header(); ?>
@@ -16,36 +16,26 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content-hp" class="site-content" role="main">
 
-		
-
-		<?php if ( have_posts() ) : ?>
-
-			<?php query_posts( array ('posts_per_page' => -1, 'offset' => 5 ) ); ?>
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-			<?php cwp_megar_content_nav( 'nav-below' ); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'no-results', 'index' ); ?>
-
-		<?php endif; ?>
+			<?php 
+				if ( have_posts() ) : 
+					while ( have_posts() ) : 
+				
+						the_post(); 
+						get_template_part( 'content', get_post_format() );
+					
+					endwhile; 
+				
+					megaresponsive_lite_content_nav( 'nav-below' );	
+					
+				else :
+				
+					get_template_part( 'no-results', 'index' );
+					
+				endif; 
+			?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

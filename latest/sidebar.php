@@ -3,20 +3,21 @@
 * 
 * The Sidebar containing the main widget areas. 
 * 
-* @package CWP-MegaR 
+* @package megaresponsive-lite
 */
 ?>
 <div id="secondary" class="widget-area" role="complementary">
-<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-	
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+<?php 
+	if ( is_active_sidebar( 'sidebar-1' ) ) :
+		
+		dynamic_sidebar( 'sidebar-1' );
 
-<?php else: ?>
+	else: ?>
 			<aside id="search" class="widget widget_search">
 				<?php get_search_form(); ?>
 			</aside>
 			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php _e( 'Archives', 'cwp-megar' ); ?></h1>
+				<h1 class="widget-title"><?php _e( 'Archives', 'megaresponsive-lite' ); ?></h1>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
@@ -44,19 +45,18 @@
                                     
     
         <div class="copyright">
-            <?php _e( 'Copyright &copy; ', 'cw-magazine' ); ?>
+            <?php _e( 'Copyright &copy; ', 'megaresponsive-lite' ); ?>
 			<?php echo date( 'Y' ); ?>
             <strong> <a href="<?php get_site_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><?php bloginfo( 'name' ); ?></a> </strong>
-            <?php _e( '| All rights reserved.' ); ?>          
+            <?php _e( '| All rights reserved.','megaresponsive-lite' ); ?>          
         </div><!-- .copyright -->
 		<div class="copyright">
-			<a href="https://themeisle.com/themes/megaresponsive/" title="CWP Megaresponsive" rel="nofollow" target="_blank">
-			CWP Megaresponsive</a>
-			<?php _e(" powered by ",'cwp');?> <a href="http://wordpress.org/" title="WordPress" target="_blank">
+			<a href="https://themeisle.com/themes/megaresponsive-lite/" title="MegaResponsive Lite" rel="nofollow" target="_blank">
+			MegaResponsive Lite</a>
+			<?php _e(" powered by ",'megaresponsive-lite');?> <a href="http://wordpress.org/" title="WordPress" target="_blank">
 			WordPress</a>
 		</div>
         
 	</footer><!-- #colophon -->
     
-    </div><!-- #secondary -->
-
+</div><!-- #secondary -->

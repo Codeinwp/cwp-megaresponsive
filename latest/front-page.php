@@ -3,9 +3,13 @@
 <div id="primary" class="content-area">		
     <div id="content" class="site-content" role="main">
         
-        <div id="side-content">				
-            <?php get_template_part('/inc/left-menu'); ?>        	
-        </div><!-- .side-content -->              			
+		<?php 
+			if( has_nav_menu('sidebar_menu') ):	
+				echo '<div id="side-content">';
+					get_template_part('/inc/left-menu');
+				echo '</div>';
+			endif; 
+		?>
 
             <div id="main-content">
 	            <div id="main-content-inner" class="list-posts">

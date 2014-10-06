@@ -2,9 +2,7 @@
 /*
  * Template Name: Contact
 */
-?>
- 
-<?php
+
 
 $commentError = '';
 $nameError = '';
@@ -55,6 +53,15 @@ if(isset($_POST['submitted'])) {
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
+			<?php 
+			if( has_nav_menu('sidebar_menu') ):	
+				echo '<div id="side-content">';
+					get_template_part('/inc/left-menu');
+				echo '</div>';
+			endif; 
+			?>
+			<div id="main-content">
+	            <div id="main-content-inner">
  
                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                        <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -62,14 +69,14 @@ if(isset($_POST['submitted'])) {
                                       <div>
                                               <?php if(isset($emailSent) && $emailSent == true) { ?>
                                                       <div>
-                                                             <p class="messsage_sent"><?php _e('Thanks, your email was sent successfully.', 'cwp_megar'); ?></p>
+                                                             <p class="messsage_sent"><?php _e('Thanks, your email was sent successfully.', 'megaresponsive-lite'); ?></p>
                                                       </div>
                                               <?php } else { ?>
                                               		  <div class="content-contact">
                                                       	<?php the_content(); ?>
                                                       </div><!-- .content-contact -->
                                                       <?php if(isset($hasError) || isset($captchaError)) { ?>
-                                                             <p class="messsage_error"><?php _e('Sorry, an error occured.', 'cwp_megar'); ?><p>
+                                                             <p class="messsage_error"><?php _e('Sorry, an error occured.', 'megaresponsive-lite'); ?><p>
                                                       <?php } ?>
  										
                                             <div class="cotnact-form-wrap">
@@ -77,7 +84,7 @@ if(isset($_POST['submitted'])) {
                                               <form action="<?php the_permalink(); ?>" id="contactForm" method="post">
                                                       <ul>
                                                       <li>
-                                                             <label for="contactName"><?php _e('Name', 'cwp-megar'); ?></label>
+                                                             <label for="contactName"><?php _e('Name', 'megaresponsive-lite'); ?></label>
                                                              <input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" />
                                                              <?php if($nameError != '') { ?>
                                                                      <span><?php $nameError;?></span>
@@ -85,14 +92,14 @@ if(isset($_POST['submitted'])) {
                                                       </li>
  
                                                       <li>
-                                                             <label for="email"><?php _e('Email:', 'cwp-megar'); ?></label>
+                                                             <label for="email"><?php _e('Email:', 'megaresponsive-lite'); ?></label>
                                                              <input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" />
                                                              <?php if($emailError != '') { ?>
                                                                      <span><?php $emailError;?></span>
                                                              <?php } ?>
                                                       </li>
  
-                                                      <li><label for="commentsText"><?php _e('Message:', 'cwp-megar'); ?></label>
+                                                      <li><label for="commentsText"><?php _e('Message:', 'megaresponsive-lite'); ?></label>
                                                              <textarea name="comments" id="commentsText" rows="7" cols="10"><?php if(isset($_POST['comments'])) { echo stripslashes($_POST['comments']); } ?></textarea>
                                                              <?php if($commentError != '') { ?>
                                                                      <span><?php $commentError;?></span>
@@ -112,8 +119,8 @@ if(isset($_POST['submitted'])) {
                        </div><!-- .post -->
  
                                <?php endwhile; endif; ?>
-
-
+				</div>
+			</div>
 
 
 		</div><!-- #content -->

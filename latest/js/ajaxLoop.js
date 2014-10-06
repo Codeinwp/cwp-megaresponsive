@@ -54,9 +54,8 @@ jQuery(function($){
     $(window).scroll(function(){
           
             var content_offset = $content.offset(); 
-//            loading = true;
             
-            if((load == true)&&($(window).scrollTop() >= $(document).height() - $(window).height() - 100)) {
+            if(load == true) {
                 load_posts();
 				page++;
 			}

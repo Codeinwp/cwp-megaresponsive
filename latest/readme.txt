@@ -4,7 +4,7 @@ Author: codeinwp
 Tags: white, light, right-sidebar, two-columns, fixed-width, custom-menu, theme-options, featured-images, right-sidebar, custom-background, custom-header, editor-style
 Requires at least:	3.3.0
 
-Tested up to:		3.8
+Tested up to:		4.0
 
 MegaResponsive Lite
 

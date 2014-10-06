@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package CWP-MegaR
+ * @package MegaResponsive Lite
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -18,8 +18,6 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
-    
-
 
 <script type="text/javascript">
   var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
@@ -55,7 +53,3 @@
 
 	<div id="main" class="site-main">
     	<div class="container">
-
-            
-        
-            

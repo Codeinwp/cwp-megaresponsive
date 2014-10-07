@@ -10,31 +10,31 @@ $emailError = '';
 
 if(isset($_POST['submitted'])) {
         if(trim($_POST['contactName']) === '') {
-               $nameError = 'Please enter your name.';
+               $nameError = __('Please enter your name.','megaresponsive-lite');
                $hasError = true;
         } else {
                $name = trim($_POST['contactName']);
         }
  
         if(trim($_POST['email']) === '')  {
-               $emailError = 'Please enter your email address.';
+               $emailError = __('Please enter your email address.','megaresponsive-lite');
                $hasError = true;
         } else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))) {
-               $emailError = 'You entered an invalid email address.';
+               $emailError = __('You entered an invalid email address.','megaresponsive-lite');
                $hasError = true;
         } else {
                $email = trim($_POST['email']);
         }
  
         if(trim($_POST['comments']) === '') {
-               $commentError = 'Please enter a message.';
+               $commentError = __('Please enter a message.','megaresponsive-lite');
                $hasError = true;
         } else {
-                       $comments = stripslashes(trim($_POST['comments']));
+               $comments = stripslashes(trim($_POST['comments']));
         }
  
         if(!isset($hasError)) {
-               $emailTo = get_option('tz_email');
+               $emailTo = get_theme_mod('tz_email');
                if (!isset($emailTo) || ($emailTo == '') ){
                        $emailTo = get_option('admin_email');
                }
@@ -46,9 +46,8 @@ if(isset($_POST['submitted'])) {
                $emailSent = true;
         }
  
-} ?>
-
-<?php get_header(); ?>
+}
+ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
@@ -62,7 +61,12 @@ if(isset($_POST['submitted'])) {
 			?>
 			<div id="main-content">
 	            <div id="main-content-inner">
- 
+						<?php 
+						$has_header = get_header_image(); 
+						if( $has_header ) :
+						?>
+							<img src="<?php header_image(); ?>" alt="" class="megaresponsive-lite-header-image" />
+						<?php endif; ?>
                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                        <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
                                <h1><?php the_title(); ?></h1>

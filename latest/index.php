@@ -13,29 +13,32 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div id="content-hp" class="site-content" role="main">
-
+	<div id="primary" class="content-area">		
+		<div id="content" class="site-content" role="main">
+			
 			<?php 
-				if ( have_posts() ) : 
-					while ( have_posts() ) : 
-				
-						the_post(); 
-						get_template_part( 'content', get_post_format() );
-					
-					endwhile; 
-				
-					megaresponsive_lite_content_nav( 'nav-below' );	
-					
-				else :
-				
-					get_template_part( 'no-results', 'index' );
-					
+				if( has_nav_menu('sidebar_menu') ):	
+					echo '<div id="side-content">';
+						get_template_part('/inc/left-menu');
+					echo '</div>';
 				endif; 
 			?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+				<div id="main-content">
+					<div id="main-content-inner" class="list-posts">
+						<?php 
+						$has_header = get_header_image(); 
+						if( $has_header ) :
+						?>
+							<img src="<?php header_image(); ?>" alt="" class="megaresponsive-lite-header-image" />
+						<?php endif; ?>
+					</div>
+				</div>
+
+		</div><!-- #content -->	
+	</div><!-- #primary -->	
+
+	<input type="hidden" id="load_posts" value="<?php echo get_template_directory_uri(); ?>" /> 
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

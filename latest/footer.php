@@ -9,10 +9,8 @@
 ?>
 		</div><!-- .container -->
 	</div><!-- #main -->
-
-
 </div><!-- #page -->
-
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -21,8 +19,6 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
 <?php wp_footer(); ?>
-
 </body>
 </html>

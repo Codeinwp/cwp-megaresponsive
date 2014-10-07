@@ -42,12 +42,12 @@ if ( post_password_required() )
 		<ol class="comment-list">
 			<?php
 				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use cwp_megar_comment() to format the comments.
+				 * to use megaresponsive_lite_comment() to format the comments.
 				 * If you want to overload this in a child theme then you can
-				 * define cwp_megar_comment() and that will be used instead.
-				 * See cwp_megar_comment() in inc/template-tags.php for more.
+				 * define megaresponsive_lite_comment() and that will be used instead.
+				 * See megaresponsive_lite_comment() in inc/template-tags.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'cwp_megar_comment' ) );
+				wp_list_comments( array( 'callback' => 'megaresponsive_lite_comment' ) );
 			?>
 		</ol><!-- .comment-list -->
 

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package CWP-MegaR
+ * @package megaresponsive-lite
  */
 
 
@@ -31,21 +31,21 @@ function megaresponsive_lite_content_nav( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'cwp-megar' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'megaresponsive-lite' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'cwp-megar' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'cwp-megar' ) . '</span>' ); ?>
+		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'megaresponsive-lite' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'megaresponsive-lite' ) . '</span>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'cwp-megar' ) ); ?></div>
+		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'megaresponsive-lite' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'cwp-megar' ) ); ?></div>
+		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'megaresponsive-lite' ) ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; ?>
@@ -58,7 +58,7 @@ function megaresponsive_lite_content_nav( $nav_id ) {
 /**
  * Custom Comments list.
  */
-function cwp_megar_comment($comment, $args, $depth) {
+function megaresponsive_lite_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
 
@@ -67,10 +67,10 @@ function cwp_megar_comment($comment, $args, $depth) {
          <?php echo get_avatar($comment,$size='48',$default=get_template_directory_uri().'/images/avatar.png' ); ?>
 
          <?php printf(__('<cite class="fn">%s</cite> / '), get_comment_author_link()) ?>
-     	 <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s','cwp-megar'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)','cwp-megar'),'  ','') ?>
+     	 <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s','cwp-megar'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)','megaresponsive-lite'),'  ','') ?>
       </div>
       <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.','cwp-megar') ?></em>
+         <em><?php _e('Your comment is awaiting moderation.','megaresponsive-lite') ?></em>
          <br />
       <?php endif; ?>
 
@@ -88,9 +88,10 @@ function cwp_megar_comment($comment, $args, $depth) {
 /**
  * Posted on function.
  */
-function cwp_megar_posted_on(){
+function megaresponsive_lite_posted_on(){
 
-	echo 'By ';
+	_e('By','megaresponsive-lite');
+	echo ' ';
 	the_author_posts_link();
 	echo ' / ';
 	the_time('F jS, Y');
@@ -101,15 +102,15 @@ function cwp_megar_posted_on(){
 /**
  * Nav post in single page.
  */
-function cwpmegar_content_nav(){
+function megaresponsive_lite_content_nav_posts(){
 ?>  
 
 	<div class="navigation-single">
 		<div class="alignright">
-			<?php _e( next_post_link('%link', 'Next post', TRUE), 'cwp-megar' ); ?>  
+			<?php _e( next_post_link('%link', 'Next post', TRUE), 'megaresponsive-lite' ); ?>  
 		</div>
 		<div class="alignright">
-			<?php _e( previous_post_link('%link', 'Previous post', TRUE), 'cwp-megar' ); ?> 
+			<?php _e( previous_post_link('%link', 'Previous post', TRUE), 'megaresponsive-lite' ); ?> 
 		</div>
 	</div> <!-- end navigation -->   
 
@@ -119,7 +120,7 @@ function cwpmegar_content_nav(){
 /**
  * Returns true if a blog has more than 1 category
  */
-function cwp_megar_categorized_blog() {
+function megaresponsive_lite_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
@@ -133,20 +134,19 @@ function cwp_megar_categorized_blog() {
 	}
 
 	if ( '1' != $all_the_cool_cats ) {
-		// This blog has more than 1 category so cwp_megar_categorized_blog should return true
+		// This blog has more than 1 category so megaresponsive_lite_categorized_blog should return true
 		return true;
 	} else {
-		// This blog has only 1 category so cwp_megar_categorized_blog should return false
+		// This blog has only 1 category so megaresponsive_lite_categorized_blog should return false
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in cwp_megar_categorized_blog
+ * Flush out the transients used in megaresponsive_lite_categorized_blog
  */
-function cwp_megar_category_transient_flusher() {
-	// Like, beat it. Dig?
+function megaresponsive_lite_category_transient_flusher() {
 	delete_transient( 'all_the_cool_cats' );
 }
-add_action( 'edit_category', 'cwp_megar_category_transient_flusher' );
-add_action( 'save_post',     'cwp_megar_category_transient_flusher' );
+add_action( 'edit_category', 'megaresponsive_lite_category_transient_flusher' );
+add_action( 'save_post',     'megaresponsive_lite_category_transient_flusher' );

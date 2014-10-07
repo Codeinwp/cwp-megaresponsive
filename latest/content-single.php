@@ -13,11 +13,11 @@
 				<?php the_category(' / '); ?>
 			</div>
             
-            <?php cwpmegar_content_nav(); ?>
+            <?php megaresponsive_lite_content_nav_posts(); ?>
             
 			<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php cwp_megar_posted_on(); ?>
+				<?php megaresponsive_lite_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php endif; ?>	
 		</div><!-- .entry-meta -->
@@ -47,7 +47,7 @@
 			/* translators: used between list items, there is a space after the comma */
 			$tag_list = get_the_tag_list( '', __( ', ', 'megaresponsive-lite' ) );
 
-			if ( ! cwp_megar_categorized_blog() ) {
+			if ( ! megaresponsive_lite_categorized_blog() ) {
 				// This blog only has 1 category so we just need to worry about tags in the meta text
 				if ( '' != $tag_list ) {
 					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'megaresponsive-lite' );

@@ -16,7 +16,7 @@ jQuery(function($){
 		var load_posts = function(){
             $.ajax({
                 type       : "GET",
-                data       : {action: 'cwp_loop',numPosts : 4, pageNumber: page, catNumber: catid, yearPar: yearvar, monthPar: monthvar, authorPar: authorvar, tagPar: tagvar},
+                data       : {action: 'megaresponsive_lite_loop',numPosts : 4, pageNumber: page, catNumber: catid, yearPar: yearvar, monthPar: monthvar, authorPar: authorvar, tagPar: tagvar},
                 dataType   : "html",
                 url        : ajaxurl,
                 beforeSend : function(data,settings){
@@ -33,7 +33,6 @@ jQuery(function($){
 					page++;
 					$("#temp_load").remove();
                     $data = $(data);
-					//console.log($data);
                      if( $data.length != 0 ){ 
                         $content.append($data); 
                      }
@@ -61,8 +60,5 @@ jQuery(function($){
 			}
     })
   
-load_posts();
+	load_posts();
 });
-
-
-    

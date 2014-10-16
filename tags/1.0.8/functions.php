@@ -256,6 +256,8 @@ function megaresponsive_lite_scripts() {
 	wp_enqueue_style( 'megaresponsive_lite-custom-style', get_template_directory_uri() . '/css/bootstrap-responsive.css', array(), '20130801', 'all' );
 
 	wp_enqueue_style( 'megaresponsive_lite-style', get_stylesheet_uri() );
+
+	wp_enqueue_script('jquery');
 	
 	wp_enqueue_script( 'megaresponsive_lite-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20130801', true );
 

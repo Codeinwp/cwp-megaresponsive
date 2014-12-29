@@ -5,6 +5,15 @@
  Changes: 
 
 
+ * Update class-tgm-plugin-activation.php
+ * Update customizer.php
+
+
+### 1.1 - 29/12/2014
+
+ Changes: 
+
+
  * Update style.css
  * Update style.css
 

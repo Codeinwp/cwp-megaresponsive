@@ -1,5 +1,14 @@
 
 
+### 1.1 - 29/12/2014
+
+ Changes: 
+
+
+ * Update style.css
+ * Update style.css
+
+
 ### 1.0.9 - 17/10/2014
 
  Changes: 

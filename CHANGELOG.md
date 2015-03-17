@@ -1,5 +1,14 @@
 
 
+### 1.1.1 - 17/03/2015
+
+ Changes: 
+
+
+ * Fixed #9, included Tweet old post plugin
+ * Fixed #5, add full width template
+
+
 ### 1.1 - 29/12/2014
 
  Changes: 

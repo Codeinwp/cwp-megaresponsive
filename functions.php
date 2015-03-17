@@ -310,6 +310,11 @@ function megaresponsive_lite_required_plugins() {
 			'slug' 		=> 'wp-product-review',
 			'required' 	=> false,
 		),
+		array(
+			'name' 		=> 'Tweet old post',
+			'slug' 		=> 'tweet-old-post',
+			'required' 	=> false,
+		)
 	
 
 	);

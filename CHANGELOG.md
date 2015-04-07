@@ -1,5 +1,19 @@
 
 
+### 1.1.2 - 07/04/2015
+
+ Changes: 
+
+
+ * This fixes #8
+
+Replaced screenshot
+ * Added image screenshot source
+ * Merge pull request #11 from DragosBubu/development
+
+This fixes #8
+
+
 ### 1.1.1 - 17/03/2015
 
  Changes: 

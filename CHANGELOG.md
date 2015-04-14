@@ -1,5 +1,13 @@
 
 
+### 1.1.3 - 14/04/2015
+
+ Changes: 
+
+
+ * Update style.css
+
+
 ### 1.1.2 - 07/04/2015
 
  Changes: 

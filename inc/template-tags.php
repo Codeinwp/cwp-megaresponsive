@@ -66,11 +66,11 @@ function megaresponsive_lite_comment($comment, $args, $depth) {
       <div class="comment-author vcard">
          <?php echo get_avatar($comment,$size='48',$default=get_template_directory_uri().'/images/avatar.png' ); ?>
 
-         <?php printf(__('<cite class="fn">%s</cite> / '), get_comment_author_link()) ?>
-     	 <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s','cwp-megar'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)','megaresponsive-lite'),'  ','') ?>
+         <?php printf(__('<cite class="fn">%s</cite> / ','megaresponsive-lite'), get_comment_author_link()) ?>
+     	 <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s','megaresponsive-lite'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)','megaresponsive-lite'),'  ','') ?>
       </div>
       <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.','megaresponsive-lite') ?></em>
+         <em><?php _e('Your comment is awaiting moderation.','megaresponsive-lite'); ?></em>
          <br />
       <?php endif; ?>
 
@@ -107,10 +107,10 @@ function megaresponsive_lite_content_nav_posts(){
 
 	<div class="navigation-single">
 		<div class="alignright">
-			<?php _e( next_post_link('%link', 'Next post', TRUE), 'megaresponsive-lite' ); ?>  
+			<?php next_post_link('%link', __( 'Next post','megaresponsive-lite' ), TRUE); ?>  
 		</div>
 		<div class="alignright">
-			<?php _e( previous_post_link('%link', 'Previous post', TRUE), 'megaresponsive-lite' ); ?> 
+			<?php previous_post_link('%link', __( 'Previous post','megaresponsive-lite' ), TRUE); ?> 
 		</div>
 	</div> <!-- end navigation -->   
 
